@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Settings, Moon, Globe, HelpCircle } from 'lucide-react';
-import { config } from '../config/business';
+import { businessConfig as config } from '../config/business';
 
 export const SettingsModal = ({ isOpen, onClose }) => {
   const { theme } = config;
