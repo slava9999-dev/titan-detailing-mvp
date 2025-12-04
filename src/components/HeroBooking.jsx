@@ -16,7 +16,7 @@ export const HeroBooking = ({ onBookingClick }) => {
         transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
       >
         <img 
-          src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=1200"
+          src="/images/hero.jpg"
           alt="Hero Background"
           className="w-full h-full object-cover"
         />
