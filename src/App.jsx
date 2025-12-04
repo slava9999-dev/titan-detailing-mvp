@@ -9,7 +9,14 @@ import { Bell, MapPin, Send } from 'lucide-react';
 
 function App() {
   const { theme, hero, services } = businessConfig;
-  const [selectedItems, setSelectedItems] = useState([]);
+  const [selectedItems, setSelectedItems] = useState(() => {
+    const saved = localStorage.getItem('cart');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  React.useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(selectedItems));
+  }, [selectedItems]);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
 
@@ -104,6 +111,7 @@ function App() {
           isOpen={isBookingOpen} 
           onClose={() => setIsBookingOpen(false)}
           selectedItems={selectedItems}
+          onRemoveItem={toggleItem}
         />
         
         <NotificationsModal 

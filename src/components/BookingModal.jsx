@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, Clock, User, Phone, CheckCircle, Send } from 'lucide-react';
 import { businessConfig } from '../config/business';
 
-export const BookingModal = ({ isOpen, onClose, selectedItems }) => {
+export const BookingModal = ({ isOpen, onClose, selectedItems, onRemoveItem }) => {
   const { theme, telegramAdmin, name: appName, workingHours } = businessConfig;
   
   const timeSlots = Array.from(
@@ -23,7 +23,7 @@ export const BookingModal = ({ isOpen, onClose, selectedItems }) => {
   }, [isOpen]);
 
   const total = selectedItems.reduce((sum, item) => sum + item.price, 0);
-  const isValid = date && time && name && phone.length > 5;
+  const isValid = date && time && name && phone.length > 5 && selectedItems.length > 0;
 
   const handleConfirm = () => {
     if (!isValid) return;
@@ -68,10 +68,10 @@ ${selectedItems.map(i => `— ${i.title} (${i.price}₽)`).join('\n')}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className={`w-full max-w-md bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden`}
+              className={`w-full max-w-md bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]`}
             >
               {/* Header */}
-              <div className="p-5 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+              <div className="p-5 border-b border-slate-800 flex justify-between items-center bg-slate-900/50 flex-shrink-0">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
                   <Calendar className="w-5 h-5 text-blue-500" />
                   Запись на визит
@@ -84,7 +84,35 @@ ${selectedItems.map(i => `— ${i.title} (${i.price}₽)`).join('\n')}
                 </button>
               </div>
 
-              <div className="p-5 space-y-6 max-h-[70vh] overflow-y-auto">
+              <div className="p-5 space-y-6 overflow-y-auto flex-grow">
+                
+                {/* Selected Items List */}
+                <div>
+                  <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">
+                    Выбранные услуги
+                  </label>
+                  <div className="space-y-2">
+                    {selectedItems.length === 0 ? (
+                      <p className="text-sm text-slate-500 italic">Корзина пуста</p>
+                    ) : (
+                      selectedItems.map(item => (
+                        <div key={item.id} className="flex justify-between items-center bg-slate-800/50 p-3 rounded-xl border border-slate-700/50">
+                          <span className="text-sm text-white font-medium">{item.title}</span>
+                          <div className="flex items-center gap-3">
+                            <span className="text-sm text-blue-400 font-bold">{item.price} ₽</span>
+                            <button 
+                              onClick={() => onRemoveItem(item)} 
+                              className="p-1 text-slate-500 hover:text-red-400 transition-colors"
+                            >
+                              <X className="w-4 h-4" />
+                            </button>
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </div>
+
                 {/* Date Selection */}
                 <div>
                   <label className="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">
@@ -95,7 +123,8 @@ ${selectedItems.map(i => `— ${i.title} (${i.price}₽)`).join('\n')}
                     min={new Date().toISOString().split('T')[0]}
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all"
+                    style={{ colorScheme: 'dark' }}
+                    className="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-base text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all"
                   />
                 </div>
 
