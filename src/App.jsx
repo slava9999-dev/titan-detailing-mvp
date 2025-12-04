@@ -102,7 +102,7 @@ function App() {
           href={`https://t.me/${businessConfig.telegramAdmin}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="fixed bottom-24 left-4 z-40 p-3.5 bg-blue-500 rounded-full text-white shadow-lg shadow-blue-500/30 hover:bg-blue-400 transition-transform active:scale-95 flex items-center justify-center"
+          className="fixed bottom-24 left-4 z-40 mb-safe p-3.5 bg-blue-500 rounded-full text-white shadow-lg shadow-blue-500/30 hover:bg-blue-400 transition-transform active:scale-95 flex items-center justify-center"
         >
           <Send className="w-6 h-6" />
         </a>

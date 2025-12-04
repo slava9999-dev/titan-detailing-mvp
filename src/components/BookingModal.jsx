@@ -133,7 +133,7 @@ ${selectedItems.map(i => `— ${i.title} (${i.price}₽)`).join('\n')}
                       placeholder="Ваше имя"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-xl pl-10 p-3 text-white focus:border-blue-500 outline-none transition-colors"
+                      className="w-full bg-slate-800 border border-slate-700 rounded-xl pl-10 p-3 text-base text-white focus:border-blue-500 outline-none transition-colors"
                     />
                   </div>
                   <div className="relative">
@@ -143,7 +143,7 @@ ${selectedItems.map(i => `— ${i.title} (${i.price}₽)`).join('\n')}
                       placeholder="Телефон"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-xl pl-10 p-3 text-white focus:border-blue-500 outline-none transition-colors"
+                      className="w-full bg-slate-800 border border-slate-700 rounded-xl pl-10 p-3 text-base text-white focus:border-blue-500 outline-none transition-colors"
                     />
                   </div>
                 </div>

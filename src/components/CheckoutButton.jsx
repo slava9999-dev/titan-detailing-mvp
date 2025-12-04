@@ -16,7 +16,7 @@ export const CheckoutButton = ({ selectedItems, onCheckout }) => {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-6 left-4 right-4 z-40"
+          className="fixed bottom-6 left-4 right-4 z-40 mb-safe"
         >
           <button
             onClick={onCheckout}

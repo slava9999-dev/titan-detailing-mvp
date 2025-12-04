@@ -10,14 +10,16 @@ export const HeroBooking = ({ onBookingClick }) => {
     <div className="relative w-full h-[60vh] overflow-hidden rounded-b-3xl shadow-2xl">
       {/* Background Image with Overlay */}
       <motion.div 
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0"
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
-        style={{ 
-          backgroundImage: 'url(https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=1200)',
-        }}
       >
+        <img 
+          src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=1200"
+          alt="Hero Background"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/50 to-transparent" />
       </motion.div>
 

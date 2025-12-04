@@ -37,20 +37,34 @@ export const ServiceCard = ({ item, isSelected, onToggle }) => {
           🔥 ХИТ
         </div>
       )}
-      <div className="flex justify-between items-start">
-        <div className="flex-1 pr-4">
-          <h4 className={`font-semibold text-lg mb-1 ${theme.text}`}>{item.title}</h4>
-          <p className="text-slate-400 text-sm leading-relaxed">{item.description}</p>
-          <div className="mt-3 font-bold text-blue-500">
-            {item.price} ₽
-          </div>
+      <div className="flex gap-4 items-start">
+        {/* Service Image */}
+        <div className="w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden bg-slate-800">
+          <img 
+            src={item.image} 
+            alt={item.title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
         </div>
-        
-        <div className={`
-          w-8 h-8 rounded-full flex items-center justify-center transition-colors
-          ${isSelected ? 'bg-blue-500 text-white' : 'bg-slate-800 text-slate-500'}
-        `}>
-          {isSelected ? <Check className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+
+        <div className="flex-1 min-w-0">
+          <div className="flex justify-between items-start gap-2">
+            <div>
+              <h4 className={`font-semibold text-lg mb-1 leading-tight ${theme.text}`}>{item.title}</h4>
+              <p className="text-slate-400 text-xs leading-relaxed line-clamp-2 mb-2">{item.description}</p>
+              <div className="font-bold text-blue-500">
+                {item.price} ₽
+              </div>
+            </div>
+            
+            <div className={`
+              w-8 h-8 rounded-full flex items-center justify-center transition-colors flex-shrink-0
+              ${isSelected ? 'bg-blue-500 text-white' : 'bg-slate-800 text-slate-500'}
+            `}>
+              {isSelected ? <Check className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+            </div>
+          </div>
         </div>
       </div>
     </motion.div>
