@@ -6,7 +6,7 @@ import { CheckoutButton } from './components/CheckoutButton';
 import { BookingModal } from './components/BookingModal';
 import { NotificationsModal } from './components/NotificationsModal';
 import { SettingsModal } from './components/SettingsModal';
-import { Settings, Bell, MapPin, Phone } from 'lucide-react';
+import { Settings, Bell, MapPin, Send } from 'lucide-react';
 
 function App() {
   const { theme, hero, services } = businessConfig;
@@ -97,12 +97,14 @@ function App() {
           onCheckout={() => setIsBookingOpen(true)}
         />
 
-        {/* Quick Call FAB */}
+        {/* Quick Call FAB - Telegram */}
         <a
-          href="tel:+79990000000"
-          className="fixed bottom-24 left-4 z-40 p-3.5 bg-green-500 rounded-full text-white shadow-lg shadow-green-500/30 hover:bg-green-400 transition-transform active:scale-95 flex items-center justify-center"
+          href={`https://t.me/${businessConfig.telegramAdmin}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-24 left-4 z-40 p-3.5 bg-blue-500 rounded-full text-white shadow-lg shadow-blue-500/30 hover:bg-blue-400 transition-transform active:scale-95 flex items-center justify-center"
         >
-          <Phone className="w-6 h-6" />
+          <Send className="w-6 h-6" />
         </a>
 
         {/* Modals */}

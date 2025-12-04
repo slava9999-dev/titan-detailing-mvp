@@ -15,7 +15,7 @@ export const HeroBooking = ({ onBookingClick }) => {
         animate={{ scale: 1 }}
         transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
         style={{ 
-          backgroundImage: 'url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1000)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=1200)',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/50 to-transparent" />

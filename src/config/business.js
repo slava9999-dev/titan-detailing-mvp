@@ -42,14 +42,14 @@ export const businessConfig = {
       title: "Керамика кузова",
       price: 15000,
       description: "Защита ЛКП, гидрофобный эффект, глубокий блеск.",
-      image: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800"
+      image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=800"
     },
     {
       id: 3,
       title: "Химчистка салона",
       price: 8000,
       description: "Глубокая очистка кожи и текстиля, удаление запахов.",
-      image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&q=80&w=800"
+      image: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&q=80&w=800"
     }
   ]
 };
