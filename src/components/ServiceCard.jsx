@@ -32,6 +32,11 @@ export const ServiceCard = ({ item, isSelected, onToggle }) => {
           : `${theme.cardBg} border-slate-800`
       }`}
     >
+      {item.isPopular && (
+        <div className="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg rounded-tr-lg shadow-sm z-10">
+          🔥 ХИТ
+        </div>
+      )}
       <div className="flex justify-between items-start">
         <div className="flex-1 pr-4">
           <h4 className={`font-semibold text-lg mb-1 ${theme.text}`}>{item.title}</h4>

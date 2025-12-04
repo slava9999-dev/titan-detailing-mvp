@@ -3,6 +3,11 @@ export const businessConfig = {
   telegramAdmin: import.meta.env.VITE_TELEGRAM_ADMIN || "vyacheslav_admin", 
   currency: "₽",
 
+  workingHours: {
+    start: 10, // 10:00
+    end: 20    // 20:00
+  },
+
   theme: {
     bg: "bg-slate-900", 
     text: "text-slate-50",
@@ -29,7 +34,8 @@ export const businessConfig = {
       title: "Комплекс 'Премиум'",
       price: 2500,
       description: "Трехфазная мойка, уборка салона, чернение резины.",
-      image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80&w=800"
+      image: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80&w=800",
+      isPopular: true
     },
     {
       id: 2,

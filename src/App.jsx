@@ -6,7 +6,7 @@ import { CheckoutButton } from './components/CheckoutButton';
 import { BookingModal } from './components/BookingModal';
 import { NotificationsModal } from './components/NotificationsModal';
 import { SettingsModal } from './components/SettingsModal';
-import { Settings, Bell } from 'lucide-react';
+import { Settings, Bell, MapPin, Phone } from 'lucide-react';
 
 function App() {
   const { theme, hero, services } = businessConfig;
@@ -30,12 +30,23 @@ function App() {
       <div className="max-w-md mx-auto min-h-screen relative">
         
         {/* Header */}
-        <header className="p-6 pb-2 flex justify-between items-center">
+        <header className="p-6 pb-2 flex justify-between items-start">
           <div>
             <p className="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">
               Добро пожаловать
             </p>
-            <h1 className="text-2xl font-bold">{hero.title}</h1>
+            <h1 className="text-2xl font-bold mb-3">{hero.title}</h1>
+            
+            {/* Navigation Button */}
+            <a 
+              href="https://yandex.ru/maps" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-medium text-slate-300 hover:bg-slate-800 transition-colors"
+            >
+              <MapPin className="w-3.5 h-3.5" />
+              Проложить маршрут
+            </a>
           </div>
           <div className="flex gap-3">
             <button 
@@ -85,6 +96,14 @@ function App() {
           selectedItems={selectedItems} 
           onCheckout={() => setIsBookingOpen(true)}
         />
+
+        {/* Quick Call FAB */}
+        <a
+          href="tel:+79990000000"
+          className="fixed bottom-24 left-4 z-40 p-3.5 bg-green-500 rounded-full text-white shadow-lg shadow-green-500/30 hover:bg-green-400 transition-transform active:scale-95 flex items-center justify-center"
+        >
+          <Phone className="w-6 h-6" />
+        </a>
 
         {/* Modals */}
         <BookingModal 

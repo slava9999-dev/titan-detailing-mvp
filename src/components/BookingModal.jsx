@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, Clock, User, Phone, CheckCircle, Send } from 'lucide-react';
 import { businessConfig } from '../config/business';
 
-const TIME_SLOTS = [
-  '10:00', '11:00', '12:00', '13:00', '14:00', 
-  '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'
-];
-
 export const BookingModal = ({ isOpen, onClose, selectedItems }) => {
-  const { theme, telegramAdmin, name: appName } = businessConfig;
+  const { theme, telegramAdmin, name: appName, workingHours } = businessConfig;
+  
+  const timeSlots = Array.from(
+    { length: (workingHours?.end || 20) - (workingHours?.start || 10) + 1 },
+    (_, i) => `${(workingHours?.start || 10) + i}:00`
+  );
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [name, setName] = useState('');
@@ -105,7 +105,7 @@ ${selectedItems.map(i => `— ${i.title} (${i.price}₽)`).join('\n')}
                     Время
                   </label>
                   <div className="grid grid-cols-4 gap-2">
-                    {TIME_SLOTS.map((slot) => (
+                    {timeSlots.map((slot) => (
                       <button
                         key={slot}
                         onClick={() => setTime(slot)}
