@@ -5,15 +5,13 @@ import { ServiceCard } from './components/ServiceCard';
 import { CheckoutButton } from './components/CheckoutButton';
 import { BookingModal } from './components/BookingModal';
 import { NotificationsModal } from './components/NotificationsModal';
-import { SettingsModal } from './components/SettingsModal';
-import { Settings, Bell, MapPin, Send } from 'lucide-react';
+import { Bell, MapPin, Send } from 'lucide-react';
 
 function App() {
   const { theme, hero, services } = businessConfig;
   const [selectedItems, setSelectedItems] = useState([]);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const toggleItem = (item) => {
     setSelectedItems(prev => {
@@ -55,12 +53,6 @@ function App() {
             >
               <Bell className="w-5 h-5" />
               <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-slate-900"></span>
-            </button>
-            <button 
-              onClick={() => setIsSettingsOpen(true)}
-              className="p-2 bg-slate-900 rounded-full text-slate-400 hover:text-white transition-colors"
-            >
-              <Settings className="w-5 h-5" />
             </button>
           </div>
         </header>
@@ -118,15 +110,11 @@ function App() {
           isOpen={isNotificationsOpen}
           onClose={() => setIsNotificationsOpen(false)}
         />
-
-        <SettingsModal 
-          isOpen={isSettingsOpen}
-          onClose={() => setIsSettingsOpen(false)}
-        />
         
       </div>
     </div>
   );
 }
+
 
 export default App;
